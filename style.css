@@ -17,7 +17,7 @@ h2 {
 }
 main { 
     display: grid;
-    grid-template-columns: 40% 60%;
+    grid-template-columns: 35% 65%;
     margin-top: 3em;
 }
 header {
