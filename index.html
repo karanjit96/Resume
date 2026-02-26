@@ -1,179 +1,130 @@
-<!DOCTYPE html>
-<html>
+﻿<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Karanjit Singh Resume</title>
-    <!-- Font Awesome for icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <!-- Main CSS -->
-    <link href="style.css" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Karanjit Singh | Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Fraunces:opsz,wght@9..144,500;9..144,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
+<body class="page-portfolio page-resume">
+  <div class="bg-orb orb-1"></div>
+  <div class="bg-orb orb-2"></div>
 
-<body>
-    <header id="header">
-        <!-- resume header with your name and title -->
-        <h1><b>Karanjit</b> Singh</h1>
-        <hr> Technical Project Manager | Automotive Services & AI Solutions
-        <hr>
-    </header>
+  <header class="site-header glass">
+    <a class="brand brand-photo" href="index.html" aria-label="Homepage">
+      <img src="New1.jpg" alt="Karanjit Singh" />
+    </a>
+    <nav class="top-nav">
+      <a href="#about" data-i18n="navAbout">About</a>
+      <a href="#experience" data-i18n="navExperience">Experience</a>
+      <a href="#projects" data-i18n="navProjects">Projects</a>
+      <a href="#gallery" data-i18n="navGallery">Gallery</a>
+      <a class="nav-resume" href="#resumeSection" data-i18n="openResume">Open Resume</a>
+    </nav>
+    <div class="lang-switch" role="group" aria-label="Language switcher">
+      <button class="chip active" data-lang="en">EN</button>
+      <button class="chip" data-lang="de">DE</button>
+    </div>
+  </header>
 
-    <main>
-        <article id="mainLeft">
-            <section>
-                <p>
-                    <img src="New1.jpg" alt="Profile Picture" width="250" height="250">
-                </p>
-                <h2>Personal Data</h2>
-                <p>Name: Karanjit Singh</p>
-                <p>DOB: 02.04.1996</p>
-                <p>Place of Birth: Basti Bawa Khel, India</p>
-                <p>Nationality: Indian</p>
-            </section>
-            <section>
-                <h2>Contact</h2>
-                <p><b>Mobile:</b> +49 176 20286951</p>
-                <br>
-                <p><b>Address:</b></p>
-                <p>Zimmer 10/4</p>
-                <p>Georg-Friedrich-Straße 16</p>
-                <p>76131 Karlsruhe</p>
-                <br>
-                <p>
-                    <i class="fa fa-envelope" aria-hidden="true"></i>
-                    <a href="mailto:karanjit96@gmail.com">karanjit96@gmail.com</a>
-                </p>
-                <p>
-                    <i class="fab fa-github" aria-hidden="true"></i>
-                    <a href="https://github.com/karanjit96">karanjit96</a>
-                </p>
-                <p>
-                    <i class="fab fa-linkedin" aria-hidden="true"></i>
-                    <a href="https://www.linkedin.com/in/karanjit-singh">karanjit-singh</a>
-                </p>
-            </section>
-            <section>
-                <h2>Computer Skills</h2>
-                <p>• C++ • Python (Machine Learning, Data Analysis) • Matlab • Ansys • MS Office • LT-Spice • Keil • SPS</p>
-                <p>Familiar with AI/ML frameworks: TensorFlow, PyTorch, scikit-learn, and OpenAI APIs</p>
-            </section>
-            <section>
-                <h2>Languages</h2>
-                <ul>
-                    <li>English – C1</li>
-                    <li>Deutsch – C1</li>
-                    <li>Hindi – C1</li>
-                    <li>Punjabi – C1</li>
-                </ul>
-            </section>
-            <section>
-                <h2>Other</h2>
-                <p><b>Swimming</b></p>
-                <ul>
-                    <li>2 national-level records</li>
-                    <li> About 200 medals in various swimming competitions</li>
-                </ul>
-                <p><b>Hobbies</b></p>
-                <ul>
-                    <li>Traveling</li>
-                    <li>Fitness</li>
-                </ul>
-            </section>
-        </article>
+  <main>
+    <section class="hero" id="about">
+      <div class="hero-glow"></div>
+      <div class="hero-copy">
+        <p class="eyebrow" data-i18n="eyebrow">Technical Project Manager | Automotive & AI</p>
+        <h1 data-i18n="heroTitle">Karanjit Singh</h1>
+        <p class="hero-text" data-i18n="heroText"></p>
+        <div class="hero-actions">
+          <a class="btn primary" href="#resumeSection" data-i18n="viewResume">View Resume</a>
+          <a class="btn" href="mailto:karanjit96@gmail.com">karanjit96@gmail.com</a>
+        </div>
+      </div>
+      <div class="hero-image glass">
+        <img src="new2.jpg" alt="Karanjit Singh portrait" />
+      </div>
+    </section>
 
-        <article id="mainRight">
-            <section>
-                <!-- about you -->
-                <p>
-                Proactive Technical Project Manager with hands-on experience in vehicle systems, diagnostics, and service engineering within the electric mobility space. Proven ability to coordinate cross-functional teams, manage technical documentation lifecycles, and deliver service readiness solutions in international, fast-paced environments. Adept at aligning service operations with strategic goals and enhancing communication across engineering, IT, and after-sales functions.
-                </p>
-                <br>
-                <p>
-                Complemented by a strong background in AI and machine learning, with practical experience developing intelligent tools for diagnostics, recommendation engines, and workflow automation. Brings a tech-forward mindset to traditional service processes, improving efficiency, data usage, and end-user support.
-                </p>
-            </section>
+    <section class="section" id="experience">
+      <div class="section-head">
+        <h2 data-i18n="expTitle">Experience Highlights</h2>
+      </div>
+      <div class="cards" id="experienceCards"></div>
+    </section>
 
-            <section>
-                <h2>Work Experience</h2>
+    <section class="section" id="projects">
+      <div class="section-head">
+        <h2 data-i18n="projectTitle">Selected Work</h2>
+      </div>
+      <div class="cards" id="projectCards"></div>
+    </section>
 
-                <!-- Tech Support Specialist for Smart Europe -->
-                <h3><b>Current Role: Technical Support Specialist Consultant</b></h3>
-                <p><b>Smart Europe GmbH, Leinfelden-Echterdingen</b> | February 2024 – Present</p>
-                <ul>
-                    <li>Overseeing Over-the-Air (OTA) software updates for vehicles, ensuring smooth deployment in Europe and comprehensive reporting to guide strategic improvements.</li>
-                    <li>Provided 2nd Level Technical Support for OTA issues, initiating process refinements and 'Change Requests' to optimize platform capabilities.</li>
-                    <li>Developed OTA knowledge articles and Q&As, boosting support readiness and equipping customer-facing teams with timely updates.</li>
-                    <li>>Assisted in setting up a new Vehicle Preparation Center for OTA PDI at Antwerp, Belgium.</li>
-                    <li>Training the team, handling daily troubleshooting and administering diagnostics, 4G, and OTA activations for 2 VPCs.</li>
-                </ul>
+    <div class="tile-modal" id="tileModal" hidden>
+      <div class="tile-modal-backdrop" id="tileModalClose"></div>
+      <article class="tile-modal-content glass" role="dialog" aria-modal="true" aria-labelledby="tileModalTitle">
+        <button class="tile-modal-x" id="tileModalCloseBtn" aria-label="Close">×</button>
+        <img id="tileModalImage" class="tile-modal-image" alt="" />
+        <h3 id="tileModalTitle"></h3>
+        <p class="meta" id="tileModalMeta"></p>
+        <ul id="tileModalList"></ul>
+      </article>
+    </div>
 
-                <!-- BXL digital -->
-                <h3><b>Current Role: AI Specialist</b></h3>
-                <p><b>BXL digital GmbH, Frankfurt am Main</b> | February 2023 – Present</p>
-                <ul>
-                    <li>Created an AI-powered Apple Vision Pro app to assist people with hearing and speaking challenges; leveraged GPT for speech recognition, subtitles, and speech output.</li>
-                    <li>Deployed a machine learning–based image classification system and AI-driven recommendations for a jewelry app, driving increased user engagement.</li>
-                    <li>Implemented an AI-powered web scraper to automate data collection, reducing manual workflows and enhancing decision-making.</li>
-                    <li>Developed a GPT-powered DOG recommendation engine (<a href="https://findadog.de/" target="_blank">FindAdog</a>) that delivers personalized pet suggestions, elevating user engagement.</li>
-                    <li>Researched and implemented a machine learning–based fleet management and demand prediction algorithm (thesis project), improving operational planning.</li>
-                </ul>
+    <section class="section" id="gallery">
+      <div class="section-head">
+        <h2 data-i18n="galleryTitle">Photo Gallery</h2>
+      </div>
+      <div class="gallery-grid" id="galleryGrid"></div>
+    </section>
 
-                
-<!-- Tech PM for Smart Europe -->
+    <section class="section" id="resumeSection">
+      <div class="section-head">
+        <h2>Resume</h2>
+      </div>
+      <header class="resume-toolbar glass">
+        <div class="toolbar-group">
+          <label for="resumeLang">Language</label>
+          <select id="resumeLang">
+            <option value="en">English</option>
+            <option value="de">Deutsch</option>
+          </select>
+        </div>
+        <div class="toolbar-group">
+          <label for="resumeTemplate">Template</label>
+          <select id="resumeTemplate">
+            <option value="modern">Modern</option>
+            <option value="classic">Classic</option>
+            <option value="compact">Compact</option>
+            <option value="minimal">Minimal</option>
+            <option value="executive">Executive</option>
+            <option value="ats">ATS</option>
+          </select>
+        </div>
+        <div class="toolbar-group">
+          <label for="printLayout">A4 Layout</label>
+          <select id="printLayout">
+            <option value="standard">Standard</option>
+            <option value="balanced">Balanced</option>
+            <option value="dense">Dense</option>
+          </select>
+        </div>
+        <div class="toolbar-group toolbar-action">
+          <label for="downloadPdfBtn">Action</label>
+          <button class="btn" id="downloadPdfBtn" type="button">Print / Save PDF</button>
+        </div>
+      </header>
+      <div class="resume-shell" id="resumeRoot"></div>
+    </section>
+  </main>
 
-                <h3><b>Previous Role: Technical Project Manager Consultant</b></h3>
-                <p><b>Smart Europe GmbH, Leinfelden-Echterdingen</b> | February 2023 – February 2024</p>
-                <ul>
-                    <li>Coordinated Development Leads, Delivery Leads, and Release Managers to fulfill IT project milestones, effectively managing changing scope and capacity challenges.</li>
-                    <li>Streamlined scope prioritization and timeline management to align with strategic objectives, ensuring timely deliverables and high stakeholder satisfaction.</li>
-                    <li>Led cross-team collaboration with PMO counterparts to unify timelines and spearhead business testing, improving operational efficiency and reducing delays.</li>
-                    <li>Acted as central communication conduit for Smart PMO, IT teams, and senior leadership, enhancing visibility and strategic decision-making.</li>
-                </ul>
-                
-                
+  <footer class="site-footer">
+    <p>© <span id="year"></span> Karanjit Singh</p>
+  </footer>
 
-                
-                <!-- Working Student -->
-                <h3><b>Working Student</b></h3>
-                <p><b>Mercedes-Benz, Rastatt</b> | March 2020 – March 2021</p>
-                <p>Information Office Department – Rastatt, Aguascalientes & Hambach</p>
-                <ul>
-                    <li>Contributed to the operations manual for the paperless factory, handling network jack cataloging and equipment inventory updates.</li>
-                    <li>Researched and compared various ticketing systems, supporting the Plus team’s requirements and documentation processes.</li>
-                    <li>Coordinated delivery schedules with vendors, monitored IT project progress, and provided first-level IT support for production end devices.</li>
-                </ul>
-
-                <!-- Internships -->
-                <h3><b>Internships</b></h3>
-                <p><b>Mercedes-Benz</b> | August 2019 – February 2020</p>
-                <p>Information Office Department – Rastatt, Aguascalientes & Hambach</p>
-                <ul>
-                    <li>Assisted in designing communication cycles and KPIs for the IT work package of the paperless factory project.</li>
-                    <li>Identified new software requirements and tested hardware devices (e.g., Vuzix Smart Glasses) for production teams.</li>
-                </ul>
-                <p><b>Siemens AG, Karlsruhe</b> | April 2018 – July 2018</p>
-                <p>Various Departments</p>
-                <ul>
-                    <li>Completed foundational courses in mechanics, metalworking, and electrical engineering.</li>
-                    <li>Gained hands-on exposure to on-site engineering processes.</li>
-                </ul>
-            </section>
-
-            <!-- Education -->
-            <section>
-                <h2>Education</h2>
-                <b>Mechatronics Bachelor</b>
-                <p>Hochschule Karlsruhe – Technik und Wirtschaft | 2018 – 2023</p>
-                <p>Overall Grade: 2.5</p>
-                
-                <b>Studienkolleg</b>
-                <p>Hochschule Wismar | 2018 – 2022</p>
-                <p>Grade: 1.3</p>
-                
-                <b>High School Graduation</b>
-                <p>Police D.A.V. Public School, Jalandhar (India) | 2018 – 2022</p>
-                <p>Grade: 89% (General university entrance qualification)</p>
-            </section>
-        </article>
-    </main>
+  <script src="resume-data.js"></script>
+  <script src="portfolio.js"></script>
+  <script src="resume.js"></script>
 </body>
 </html>
