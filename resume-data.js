@@ -18,8 +18,6 @@ window.resumeData = {
     gallery: [
       { src: "New1.jpg", caption: "Profile" },
       { src: "new2.jpg", caption: "Professional Portrait" },
-      { src: "New1.jpg", caption: "Conference Moment" },
-      { src: "new2.jpg", caption: "Studio Profile" },
       { src: "Giving presentation.png", caption: "Giving Presentation" },
       { src: "in a meeting.png", caption: "In a Meeting" },
       { src: "portrait.png", caption: "Portrait" }
