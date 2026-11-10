@@ -2,126 +2,188 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Karanjit Singh | Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Karanjit Singh · Customer Quality, OTA & AI</title>
+  <meta name="description" content="Karanjit Singh, Senior Specialist Customer Quality at smart Europe. Field quality, OTA and software quality, and AI in automotive." />
+  <meta name="theme-color" content="#f7f8fb" />
+  <meta property="og:type" content="profile" />
+  <meta property="og:title" content="Karanjit Singh · Customer Quality, OTA & AI" />
+  <meta property="og:description" content="Field quality, OTA and software quality, and AI in automotive." />
+  <meta property="og:image" content="https://karanjit96.github.io/Resume/images/portrait.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" type="image/png" href="images/favicon.png" />
+  <link rel="apple-touch-icon" href="images/favicon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Fraunces:opsz,wght@9..144,500;9..144,700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+  <link rel="preload" as="image" href="images/portrait.webp" />
   <link rel="stylesheet" href="styles.css" />
 </head>
-<body class="page-portfolio page-resume">
-  <div class="bg-orb orb-1"></div>
-  <div class="bg-orb orb-2"></div>
+<body>
+  <a class="skip-link" href="#main" data-i18n="skip">Skip to content</a>
 
-  <header class="site-header glass">
-    <a class="brand brand-photo" href="index.html" aria-label="Homepage">
-      <img src="New1.jpg" alt="Karanjit Singh" />
-    </a>
-    <nav class="top-nav">
-      <a href="#about" data-i18n="navAbout">About</a>
-      <a href="#experience" data-i18n="navExperience">Experience</a>
-      <a href="#projects" data-i18n="navProjects">Projects</a>
-      <a href="#gallery" data-i18n="navGallery">Gallery</a>
-      <a class="nav-resume" href="#resumeSection" data-i18n="openResume">Open Resume</a>
-    </nav>
-    <div class="lang-switch" role="group" aria-label="Language switcher">
-      <button class="chip active" data-lang="en">EN</button>
-      <button class="chip" data-lang="de">DE</button>
+  <header class="site-header" id="siteHeader">
+    <div class="header-inner">
+      <a class="brand" href="#top" aria-label="Karanjit Singh, back to top">
+        <img src="images/profile.webp" alt="" width="36" height="36" />
+        <span>Karanjit Singh</span>
+      </a>
+
+      <nav class="nav" id="siteNav" aria-label="Main">
+        <a href="#experience" data-i18n="navExperience">Experience</a>
+        <a href="#projects" data-i18n="navProjects">Projects</a>
+        <a href="#skills" data-i18n="navSkills">Skills</a>
+        <a href="#gallery" data-i18n="navGallery">Gallery</a>
+        <a href="#resume" class="nav-cta" data-i18n="navResume">Resume</a>
+      </nav>
+
+      <div class="header-actions">
+        <div class="lang-switch" role="group" aria-label="Language">
+          <button type="button" data-lang="en" aria-pressed="true">EN</button>
+          <button type="button" data-lang="de" aria-pressed="false">DE</button>
+        </div>
+        <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="siteNav">
+          <span class="sr-only" data-i18n="menu">Menu</span>
+          <span class="menu-icon" aria-hidden="true"></span>
+        </button>
+      </div>
     </div>
   </header>
 
-  <main>
-    <section class="hero" id="about">
-      <div class="hero-glow"></div>
-      <div class="hero-copy">
-        <p class="eyebrow" data-i18n="eyebrow">Technical Project Manager | Automotive & AI</p>
-        <h1 data-i18n="heroTitle">Karanjit Singh</h1>
-        <p class="hero-text" data-i18n="heroText"></p>
-        <div class="hero-actions">
-          <a class="btn primary" href="#resumeSection" data-i18n="viewResume">View Resume</a>
-          <a class="btn" href="mailto:karanjit96@gmail.com">karanjit96@gmail.com</a>
+  <main id="main">
+    <!-- Hero -->
+    <section class="hero" id="top">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="pill reveal"><span class="dot" aria-hidden="true"></span><span data-i18n="available">Based in Germany</span></p>
+          <h1 class="reveal" id="heroName">Karanjit Singh</h1>
+          <p class="hero-role reveal" id="heroRole"></p>
+          <p class="hero-text reveal" id="heroText"></p>
+          <div class="hero-actions reveal">
+            <a class="btn btn-primary" href="#resume" data-i18n="viewResume">View resume</a>
+            <a class="btn btn-ghost" id="heroMail" href="#" data-i18n="contactMe">Get in touch</a>
+            <div class="social" id="heroLinks"></div>
+          </div>
+          <dl class="stats reveal" id="heroStats"></dl>
         </div>
-      </div>
-      <div class="hero-image glass">
-        <img src="new2.jpg" alt="Karanjit Singh portrait" />
+        <figure class="hero-media reveal">
+          <div class="hero-blob" aria-hidden="true"></div>
+          <img id="heroImage" src="images/portrait.webp" alt="Portrait of Karanjit Singh" width="900" height="1200" fetchpriority="high" />
+        </figure>
       </div>
     </section>
 
+    <!-- Experience -->
     <section class="section" id="experience">
-      <div class="section-head">
-        <h2 data-i18n="expTitle">Experience Highlights</h2>
+      <div class="container">
+        <header class="section-head reveal">
+          <p class="kicker" data-i18n="expKicker">Career</p>
+          <h2 data-i18n="expTitle">Experience</h2>
+          <p class="lead" data-i18n="expLead"></p>
+        </header>
+        <ol class="timeline" id="timeline"></ol>
       </div>
-      <div class="cards" id="experienceCards"></div>
     </section>
 
-    <section class="section" id="projects">
-      <div class="section-head">
-        <h2 data-i18n="projectTitle">Selected Work</h2>
+    <!-- Projects -->
+    <section class="section section-tint" id="projects">
+      <div class="container">
+        <header class="section-head reveal">
+          <p class="kicker" data-i18n="projectKicker">Selected work</p>
+          <h2 data-i18n="projectTitle">Projects</h2>
+          <p class="lead" data-i18n="projectLead"></p>
+        </header>
+        <div class="bento" id="projectGrid"></div>
       </div>
-      <div class="cards" id="projectCards"></div>
     </section>
 
-    <div class="tile-modal" id="tileModal" hidden>
-      <div class="tile-modal-backdrop" id="tileModalClose"></div>
-      <article class="tile-modal-content glass" role="dialog" aria-modal="true" aria-labelledby="tileModalTitle">
-        <button class="tile-modal-x" id="tileModalCloseBtn" aria-label="Close">×</button>
-        <img id="tileModalImage" class="tile-modal-image" alt="" />
-        <h3 id="tileModalTitle"></h3>
-        <p class="meta" id="tileModalMeta"></p>
-        <ul id="tileModalList"></ul>
-      </article>
-    </div>
-
-    <section class="section" id="gallery">
-      <div class="section-head">
-        <h2 data-i18n="galleryTitle">Photo Gallery</h2>
+    <!-- Skills -->
+    <section class="section" id="skills">
+      <div class="container">
+        <header class="section-head reveal">
+          <p class="kicker" data-i18n="skillsKicker">Toolbox</p>
+          <h2 data-i18n="skillsTitle">Skills & languages</h2>
+        </header>
+        <div class="skills-grid" id="skillsGrid"></div>
+        <div class="split">
+          <div class="panel reveal">
+            <h3 data-i18n="languages">Languages</h3>
+            <ul class="lang-list" id="langList"></ul>
+          </div>
+          <div class="panel reveal">
+            <h3 data-i18n="educationTitle">Education</h3>
+            <ul class="edu-list" id="eduList"></ul>
+          </div>
+        </div>
       </div>
-      <div class="gallery-grid" id="galleryGrid"></div>
     </section>
 
-    <section class="section" id="resumeSection">
-      <div class="section-head">
-        <h2>Resume</h2>
+    <!-- Gallery -->
+    <section class="section section-tint" id="gallery">
+      <div class="container">
+        <header class="section-head reveal">
+          <p class="kicker" data-i18n="galleryKicker">Moments</p>
+          <h2 data-i18n="galleryTitle">Gallery</h2>
+        </header>
+        <div class="gallery" id="galleryGrid"></div>
       </div>
-      <header class="resume-toolbar glass">
-        <div class="toolbar-group">
-          <label for="resumeLang">Language</label>
-          <select id="resumeLang">
-            <option value="en">English</option>
-            <option value="de">Deutsch</option>
-          </select>
+    </section>
+
+    <!-- Resume -->
+    <section class="section" id="resume">
+      <div class="container">
+        <header class="section-head reveal">
+          <p class="kicker" data-i18n="resumeKicker">Download</p>
+          <h2 data-i18n="resumeTitle">Resume</h2>
+          <p class="lead" data-i18n="resumeLead"></p>
+        </header>
+
+        <div class="toolbar" role="group" aria-label="Resume options">
+          <label class="field">
+            <span data-i18n="template">Template</span>
+            <select id="resumeTemplate"></select>
+          </label>
+          <label class="field">
+            <span data-i18n="density">A4 density</span>
+            <select id="printLayout"></select>
+          </label>
+          <button class="btn btn-primary" id="downloadPdfBtn" type="button">
+            <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M12 3a1 1 0 0 1 1 1v9.59l3.3-3.3a1 1 0 1 1 1.4 1.42l-5 5a1 1 0 0 1-1.4 0l-5-5a1 1 0 1 1 1.4-1.42l3.3 3.3V4a1 1 0 0 1 1-1Zm-8 15a1 1 0 0 1 1 1v1h14v-1a1 1 0 1 1 2 0v2a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-2a1 1 0 0 1 1-1Z"/></svg>
+            <span data-i18n="print">Print / Save PDF</span>
+          </button>
         </div>
-        <div class="toolbar-group">
-          <label for="resumeTemplate">Template</label>
-          <select id="resumeTemplate">
-            <option value="modern">Modern</option>
-            <option value="classic">Classic</option>
-            <option value="compact">Compact</option>
-            <option value="minimal">Minimal</option>
-            <option value="executive">Executive</option>
-            <option value="ats">ATS</option>
-          </select>
+
+        <div class="paper-wrap">
+          <div class="resume-shell" id="resumeRoot"></div>
         </div>
-        <div class="toolbar-group">
-          <label for="printLayout">A4 Layout</label>
-          <select id="printLayout">
-            <option value="standard">Standard</option>
-            <option value="balanced">Balanced</option>
-            <option value="dense">Dense</option>
-          </select>
+      </div>
+    </section>
+
+    <!-- Contact CTA -->
+    <section class="cta">
+      <div class="container cta-inner reveal">
+        <h2 data-i18n="ctaTitle"></h2>
+        <p data-i18n="ctaText"></p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" id="ctaMail" href="#"></a>
+          <div class="social" id="ctaLinks"></div>
         </div>
-        <div class="toolbar-group toolbar-action">
-          <label for="downloadPdfBtn">Action</label>
-          <button class="btn" id="downloadPdfBtn" type="button">Print / Save PDF</button>
-        </div>
-      </header>
-      <div class="resume-shell" id="resumeRoot"></div>
+      </div>
     </section>
   </main>
 
   <footer class="site-footer">
-    <p>© <span id="year"></span> Karanjit Singh</p>
+    <div class="container footer-inner">
+      <p>© <span id="year"></span> Karanjit Singh</p>
+      <p class="muted" data-i18n="footer"></p>
+    </div>
   </footer>
+
+  <dialog class="lightbox" id="lightbox">
+    <button class="lightbox-close" id="lightboxClose" type="button" aria-label="Close">×</button>
+    <img id="lightboxImg" alt="" />
+    <p id="lightboxCaption"></p>
+  </dialog>
 
   <script src="resume-data.js"></script>
   <script src="portfolio.js"></script>
