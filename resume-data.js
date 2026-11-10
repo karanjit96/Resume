@@ -51,7 +51,7 @@ window.resumeData = {
       hideDetails: "Hide details",
       projectKicker: "Selected work",
       projectTitle: "Projects",
-      projectLead: "AI and data products I have designed and delivered.",
+      projectLead: "AI and data products I have conceived, designed and delivered.",
       visit: "Visit",
       skillsKicker: "Toolbox",
       skillsTitle: "Skills & languages",
@@ -98,8 +98,12 @@ window.resumeData = {
         company: "smart Europe",
         place: "Leinfelden-Echterdingen, Germany",
         period: "May 2026 – Present",
-        tags: ["Field quality", "OTA", "KPI dashboards"],
+        tags: ["Field quality", "OTA", "AI insights", "KPI dashboards"],
         bullets: [
+          "Created the concept for an AI-powered Quality Portal for the QM team that turns CEC and REC customer cases into insights: automatic multi-label issue categorization, translation, top issue trends and KPI dashboards.",
+          "Designed early warning alerts for sudden spikes of cases on the same issue, plus AI-drafted 5W2H evidence packages that make escalations to HQ faster and more complete.",
+          "Built a working MVP demo of the portal and brought it into the IT planning cycle as a business requirement for 2027.",
+          "Developed a concept to automate the EU parts return process, from shipment booking and label creation to dealer notification and status follow-up.",
           "Manage and optimize field quality processes across complaint management, field performance monitoring and failure analysis, with continuous improvement across regions.",
           "Own and coordinate claiming channels, especially CEC inputs, ensuring robust evaluation, classification and feedback into the field quality system.",
           "Lead cross-functional collaboration across Europe, China and global stakeholders to align hardware and software quality strategy, standards and learnings.",
@@ -175,6 +179,11 @@ window.resumeData = {
       }
     ],
     projects: [
+      {
+        title: "AI Quality Portal for Customer Cases",
+        meta: "Concept and MVP for smart Europe QM",
+        bullets: ["Turns CEC and REC customer cases into insights with AI categorization, translation, trend dashboards, spike alerts and ready-to-send 5W2H escalation packages."]
+      },
       {
         title: "Apple Vision Pro Accessibility App",
         meta: "GPT speech recognition, live subtitles and voice output",
@@ -291,8 +300,12 @@ window.resumeData = {
         company: "smart Europe",
         place: "Leinfelden-Echterdingen",
         period: "Mai 2026 – heute",
-        tags: ["Field Quality", "OTA", "KPI-Dashboards"],
+        tags: ["Field Quality", "OTA", "KI-Insights", "KPI-Dashboards"],
         bullets: [
+          "Konzeption eines KI-gestützten Quality Portals für das QM-Team, das CEC- und REC-Kundenfälle in Erkenntnisse übersetzt: automatische Mehrfach-Kategorisierung, Übersetzung, Top-Issue-Trends und KPI-Dashboards.",
+          "Entwurf von Frühwarnungen bei plötzlich steigenden Fallzahlen zu einem Thema sowie KI-erstellter 5W2H-Evidenzpakete für schnellere und vollständigere Eskalationen an das HQ.",
+          "Entwicklung einer lauffähigen MVP-Demo und Einbringung als IT-Business-Requirement in die Planung für 2027.",
+          "Konzept zur Automatisierung des EU-Teilerückversands, von Sendungsbuchung und Labelerstellung bis zur Händlerinformation und Statusverfolgung.",
           "Steuerung und Optimierung etablierter Field-Quality-Prozesse inklusive Reklamationsmanagement, Feldperformance und Fehleranalyse über Regionen hinweg.",
           "Verantwortung für Claiming-Kanäle, insbesondere CEC-Inputs, inklusive Bewertung, Klassifikation und Rückkopplung in das Field-Quality-System.",
           "Cross-funktionale Zusammenarbeit mit Teams in Europa, China und weiteren Regionen zur Abstimmung globaler Qualitätsstandards für Hardware und Software.",
@@ -368,6 +381,11 @@ window.resumeData = {
       }
     ],
     projects: [
+      {
+        title: "KI Quality Portal für Kundenfälle",
+        meta: "Konzept und MVP für das QM bei smart Europe",
+        bullets: ["Übersetzt CEC- und REC-Kundenfälle in Erkenntnisse: KI-Kategorisierung, Übersetzung, Trend-Dashboards, Frühwarnungen und fertige 5W2H-Eskalationspakete."]
+      },
       {
         title: "Apple Vision Pro Accessibility App",
         meta: "GPT-gestützte Spracherkennung, Untertitel und Sprachausgabe",
