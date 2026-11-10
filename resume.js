@@ -1,187 +1,130 @@
 (function () {
+  "use strict";
+
   const data = window.resumeData;
+  const site = window.site;
+  const esc = site.esc;
+  const store = site.store;
+
   const root = document.getElementById("resumeRoot");
-  const langSelect = document.getElementById("resumeLang");
   const templateSelect = document.getElementById("resumeTemplate");
-  const printLayoutSelect = document.getElementById("printLayout");
-  const downloadPdfBtn = document.getElementById("downloadPdfBtn");
+  const layoutSelect = document.getElementById("printLayout");
+  const printBtn = document.getElementById("downloadPdfBtn");
+
+  const templates = {
+    modern:    { side: ["contact", "skills", "languages", "personal"], main: ["profile", "experience", "projects", "education"], avatar: true },
+    classic:   { side: ["contact", "skills", "languages"], main: ["profile", "experience", "education", "projects"], avatar: true },
+    compact:   { side: ["contact", "skills", "languages"], main: ["profile", "experience", "projects", "education"], avatar: true },
+    minimal:   { side: ["contact", "languages"], main: ["profile", "experience", "education", "projects"], avatar: false },
+    executive: { side: ["profile", "contact", "skills", "languages"], main: ["experience", "projects", "education"], avatar: true },
+    ats:       { side: ["contact", "skills", "languages"], main: ["profile", "experience", "education"], avatar: false }
+  };
+  const layouts = ["standard", "balanced", "dense"];
 
   const state = {
-    lang: localStorage.getItem("resume-lang") || "en",
-    template: localStorage.getItem("resume-template") || "modern",
-    printLayout: localStorage.getItem("resume-print-layout") || "standard"
+    template: templates[store.get("resume-template")] ? store.get("resume-template") : "modern",
+    layout: layouts.includes(store.get("resume-print-layout")) ? store.get("resume-print-layout") : "standard"
   };
 
-  const templateConfig = {
-    modern: {
-      sideBlocks: ["profile", "contact", "skills", "languages", "personal"],
-      mainBlocks: ["experience", "projects", "education"],
-      showAvatar: true
-    },
-    classic: {
-      sideBlocks: ["contact", "skills", "languages"],
-      mainBlocks: ["profile", "experience", "education", "projects"],
-      showAvatar: true
-    },
-    compact: {
-      sideBlocks: ["contact", "skills"],
-      mainBlocks: ["profile", "experience", "projects", "education"],
-      showAvatar: true
-    },
-    minimal: {
-      sideBlocks: ["contact", "languages"],
-      mainBlocks: ["profile", "experience", "education", "projects"],
-      showAvatar: true
-    },
-    executive: {
-      sideBlocks: ["profile", "contact", "skills", "languages"],
-      mainBlocks: ["experience", "projects", "education"],
-      showAvatar: true
-    },
-    ats: {
-      sideBlocks: ["contact", "skills", "languages"],
-      mainBlocks: ["profile", "experience", "education"],
-      showAvatar: false
-    }
-  };
+  const list = (items) => `<ul>${items.map((x) => `<li>${esc(x)}</li>`).join("")}</ul>`;
 
-  function list(items) {
-    return `<ul>${items.map((x) => `<li>${x}</li>`).join("")}</ul>`;
+  function entries(items) {
+    return items
+      .map((item) => {
+        const meta = [item.company, item.place].filter(Boolean).map(esc).join(", ");
+        return `<article class="r-item">
+          <div class="r-item-head"><h4>${esc(item.title)}</h4>${item.period ? `<span class="r-period">${esc(item.period)}</span>` : ""}</div>
+          ${meta ? `<p class="r-meta">${meta}</p>` : ""}
+          ${list(item.bullets)}
+        </article>`;
+      })
+      .join("");
   }
 
-  function experience(items) {
-    return items.map((item) => {
-      const place = item.place ? `, ${item.place}` : "";
-      const period = item.period ? ` | ${item.period}` : "";
-      return `<article class="resume-item"><h4>${item.title}</h4><p class="meta">${item.company}${place}${period}</p>${list(item.bullets)}</article>`;
-    }).join("");
+  function block(type, t, b, inSide) {
+    const H = inSide ? "h3" : "h2";
+    const wrap = (cls, title, body) => `<section class="r-block ${cls}"><${H}>${esc(title)}</${H}>${body}</section>`;
+
+    switch (type) {
+      case "contact":
+        return wrap("r-contact", t.ui.contact, `
+          <p><a href="mailto:${esc(b.contact.email)}">${esc(b.contact.email)}</a><br/>${esc(b.contact.phone)}</p>
+          <p>${b.contact.address.map(esc).join("<br/>")}</p>
+          <p>${b.links.map((l) => `<a href="${esc(l.href)}" target="_blank" rel="noopener noreferrer">${esc(l.label)}</a>`).join("<br/>")}</p>`);
+      case "skills":
+        return wrap("r-skills", t.ui.skills, t.skillGroups
+          .map((g) => `<p class="r-skill-group"><strong>${esc(g.name)}</strong>${g.items.map(esc).join(", ")}</p>`)
+          .join(""));
+      case "languages":
+        return wrap("r-languages", t.ui.languages, list(t.languages.map((l) => `${l.name} (${l.level})`)));
+      case "personal":
+        return wrap("r-personal", t.ui.personal, list(t.personal));
+      case "profile":
+        return wrap("r-profile", t.ui.profile, `<p>${esc(t.summary)}</p>`);
+      case "experience":
+        return wrap("r-experience", t.ui.experience, entries(t.experience));
+      case "projects":
+        return wrap("r-projects", t.ui.projects, entries(t.projects.map((p) => ({ title: p.title, company: p.meta, bullets: p.bullets }))));
+      case "education":
+        return wrap("r-education", t.ui.education, t.education
+          .map((e) => `<article class="r-item">
+            <div class="r-item-head"><h4>${esc(e.degree)}</h4>${e.period ? `<span class="r-period">${esc(e.period)}</span>` : ""}</div>
+            <p class="r-meta">${esc(e.school)}${e.grade ? ` · ${esc(e.grade)}` : ""}</p>
+          </article>`)
+          .join(""));
+      default:
+        return "";
+    }
   }
 
-  function sideBlock(type, t, b) {
-    if (type === "contact") {
-      return `<div class="resume-block contact-block">
-        <h3>Contact</h3>
-        <p>${b.contact.phone}<br/>${b.contact.email}</p>
-        <p>${b.contact.address.join("<br/>")}</p>
-        <p>${b.links.map((x) => `<a href="${x.href}" target="_blank">${x.label}</a>`).join("<br/>")}</p>
-      </div>`;
-    }
-
-    if (type === "skills") {
-      return `<div class="resume-block skills-block"><h3>${t.ui.skills}</h3>${list(t.skills)}</div>`;
-    }
-
-    if (type === "languages") {
-      return `<div class="resume-block languages-block"><h3>${t.ui.languages}</h3>${list(t.languages)}</div>`;
-    }
-
-    if (type === "personal") {
-      return `<div class="resume-block personal-block"><h3>${t.ui.personal}</h3>${list(t.personal)}</div>`;
-    }
-
-    if (type === "profile") {
-      return `<div class="resume-block profile-block"><h3>${t.ui.profile}</h3><p>${t.summary}</p></div>`;
-    }
-
-    return "";
+  function fillSelects(t) {
+    templateSelect.innerHTML = Object.keys(templates)
+      .map((k) => `<option value="${k}">${esc(t.ui.templates[k])}</option>`)
+      .join("");
+    layoutSelect.innerHTML = layouts.map((k) => `<option value="${k}">${esc(t.ui.densities[k])}</option>`).join("");
+    templateSelect.value = state.template;
+    layoutSelect.value = state.layout;
   }
 
-  function mainBlock(type, t) {
-    if (type === "profile") {
-      return `<section class="resume-block profile-block"><h2>${t.ui.profile}</h2><p>${t.summary}</p></section>`;
-    }
-
-    if (type === "experience") {
-      return `<section class="resume-block exp-block"><h2>${t.ui.experience}</h2>${experience(t.experience)}</section>`;
-    }
-
-    if (type === "projects") {
-      const mapped = t.projects.map((p) => ({
-        title: p.title,
-        company: p.meta,
-        place: "",
-        period: "",
-        bullets: p.bullets
-      }));
-      return `<section class="resume-block projects-block"><h2>Projects</h2>${experience(mapped)}</section>`;
-    }
-
-    if (type === "education") {
-      return `<section class="resume-block education-block"><h2>${t.ui.education}</h2>${list(t.education)}</section>`;
-    }
-
-    return "";
+  function applyClasses() {
+    root.className = `resume-shell tpl-${state.template}`;
+    document.body.classList.remove(...layouts.map((l) => `print-${l}`));
+    document.body.classList.add(`print-${state.layout}`);
   }
 
   function render() {
-    const t = data[state.lang];
+    const t = data[site.lang];
     const b = data.base;
-    const cfg = templateConfig[state.template] || templateConfig.modern;
+    const cfg = templates[state.template];
 
-    const identity = `
-      <div class="resume-identity">
-        ${cfg.showAvatar ? `<img src="${b.photo}" alt="${b.name}" class="resume-avatar" />` : ""}
-        <div>
-          <h1 class="resume-name">${b.name}</h1>
-          <p class="resume-role">${b.role}</p>
-        </div>
-      </div>`;
+    fillSelects(t);
+    applyClasses();
 
-    const sideHtml = cfg.sideBlocks.map((x) => sideBlock(x, t, b)).join("");
-    const mainHtml = cfg.mainBlocks.map((x) => mainBlock(x, t)).join("");
+    const identity = `<header class="r-identity">
+      ${cfg.avatar ? `<img class="r-avatar" src="${esc(b.photo)}" alt="" />` : ""}
+      <div><h1 class="r-name">${esc(b.name)}</h1><p class="r-role">${esc(t.role)}</p></div>
+    </header>`;
 
-    root.innerHTML = `
-      <section class="resume-layout">
-        <aside class="resume-side">
-          ${identity}
-          ${sideHtml}
-        </aside>
-
-        <article class="resume-main">
-          ${mainHtml}
-        </article>
-      </section>`;
+    root.innerHTML = `<div class="r-layout">
+      <aside class="r-side">${identity}${cfg.side.map((x) => block(x, t, b, true)).join("")}</aside>
+      <div class="r-main">${cfg.main.map((x) => block(x, t, b, false)).join("")}</div>
+    </div>`;
   }
-
-  function applyTemplate(value) {
-    document.body.classList.remove("theme-modern", "theme-classic", "theme-compact", "theme-minimal", "theme-executive", "theme-ats");
-    document.body.classList.add(`theme-${value}`);
-  }
-
-  function applyPrintLayout(value) {
-    document.body.classList.remove("print-layout-standard", "print-layout-balanced", "print-layout-dense");
-    document.body.classList.add(`print-layout-${value}`);
-  }
-
-  langSelect.value = state.lang;
-  templateSelect.value = state.template;
-  printLayoutSelect.value = state.printLayout;
-
-  langSelect.addEventListener("change", () => {
-    state.lang = langSelect.value;
-    localStorage.setItem("resume-lang", state.lang);
-    render();
-  });
 
   templateSelect.addEventListener("change", () => {
     state.template = templateSelect.value;
-    localStorage.setItem("resume-template", state.template);
-    applyTemplate(state.template);
+    store.set("resume-template", state.template);
     render();
   });
 
-  printLayoutSelect.addEventListener("change", () => {
-    state.printLayout = printLayoutSelect.value;
-    localStorage.setItem("resume-print-layout", state.printLayout);
-    applyPrintLayout(state.printLayout);
+  layoutSelect.addEventListener("change", () => {
+    state.layout = layoutSelect.value;
+    store.set("resume-print-layout", state.layout);
+    applyClasses();
   });
 
-  downloadPdfBtn.addEventListener("click", () => {
-    applyPrintLayout(state.printLayout);
-    window.print();
-  });
+  printBtn.addEventListener("click", () => window.print());
+  document.addEventListener("langchange", render);
 
-  applyTemplate(state.template);
-  applyPrintLayout(state.printLayout);
   render();
 })();

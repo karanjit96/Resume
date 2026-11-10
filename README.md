@@ -1,37 +1,36 @@
-## Welcome to GitHub Pages
+# Karanjit Singh · Portfolio & Resume
 
-You can use the [editor on GitHub](https://github.com/karanjit96/Resume/edit/main/README.md) to maintain and preview the content for your website in Markdown files.
+Personal portfolio and printable resume, served with GitHub Pages.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+**Live:** https://karanjit96.github.io/Resume/
 
-### Markdown
+## Features
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+- Responsive layout for phone, tablet and desktop, with a mobile menu
+- English and German, switchable in the header (remembers your choice)
+- Expandable experience timeline, project cards, skills, gallery with lightbox
+- Printable resume with six templates (Modern, Classic, Compact, Minimal, Executive, ATS) and three A4 densities
+- No build step: plain HTML, CSS and JavaScript
 
-```markdown
-Syntax highlighted code block
+## Editing content
 
-# Header 1
-## Header 2
-### Header 3
+All text lives in **`resume-data.js`**, with one block per language (`en`, `de`).
+Change it there and both the website and the printable resume update.
 
-- Bulleted
-- List
+Images live in `images/` as `.webp`. To add a gallery photo, put the file in `images/` and add an entry under `base.gallery` plus a caption key under `ui.gallery` for each language.
 
-1. Numbered
-2. List
+## Saving the PDF
 
-**Bold** and _Italic_ and `Code` text
+Open the site, go to **Resume**, pick a template and density, then click **Print / Save PDF** and choose *Save as PDF*.
+Turn on *Background graphics* in the print dialog to keep the colors.
 
-[Link](url) and ![Image](src)
-```
+## Files
 
-For more details see [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/karanjit96/Resume/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+| File | Purpose |
+| --- | --- |
+| `index.html` | Page structure |
+| `styles.css` | All styling, including print |
+| `resume-data.js` | Content in English and German |
+| `portfolio.js` | Website rendering, language switch, menu, gallery |
+| `resume.js` | Printable resume templates |
+| `images/` | Optimized photos and favicon |
